@@ -13,7 +13,46 @@
     <h1>Oefening 1</h1>
     <h2>Setup:</h2>
     <h3>Install vue-cli</h3>
-    <pre><code class="lang-bash">npm install -g @vue/cli</code></pre>
+    <pre><code class="lang-bash">
+        npm install -g @vue/cli
+    </code></pre>
+    <h3>Create a new project</h3>
+    <pre><code class="lang-bash">
+        vue create fep
+        # Select 'Manually select feature'
+        # Pick (with space) 'Babel', 'Router' and 'Linter / Formatter'
+        # You want to user history mode for router
+        # Select 'ESLint + Prettier'
+        # Select 'Lint on save'
+        # Select 'In dedicated config files'
+    </code></pre>
+    <h3>Run the development server</h3>
+    <pre><code class="lang-cash">
+        cd fep
+        npm run serve
+    </code></pre>
+    <h3>Cleanup</h3>
+    <p>Kuis het default project op:</p>
+    <ul>
+        <li>Alle styling (css) mag weg.</li>
+        <li>Alle components mogen weg.</li>
+    </ul>
+    <h3>New views + component</h3>
+    <ul>
+        <li>Zorg ervoor dat er 5 pagina's zijn (views)
+        <ul>
+            <li>Home</li>
+            <li>Register</li>
+            <li>Login</li>
+            <li>Account</li>
+            <li>Board</li>
+        </ul>
+        </li>
+        <li>Configureer het router.js bestand, zodat de 5 paginas gelinkt zijn</li>
+        <li>Maak een Header component waarin de 5 paginas gelinkt zijn (router-link)</li>
+        <li>Zet je Header component in App.vue</li>
+    </ul>
+    <h3>Over and out</h3>
     <script src="js/prism.js"></script>
 </section>
 </body>
