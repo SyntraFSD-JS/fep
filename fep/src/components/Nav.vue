@@ -1,16 +1,19 @@
 <template>
   <div id="nav">
-      <router-link to="/"><h2>GRAIN <span class="other-color">&</span>MORTAR</h2></router-link>
-      <span id ="bullets">&#8226;&#8226;&#8226;</span>
-      <div id="subnav">        
-        <span id ="crossmark">x</span>
-        <!-- <span @click= "clickOpen">mobileNavOpen = {{mobileNavOpen}}</span> -->
-        <router-link to="/">Home</router-link>
-        <router-link to="/register">Register</router-link>
-        <router-link to="/login">Login</router-link>
-        <router-link to="/account">Account</router-link>
-        <router-link to="/board">Board</router-link>
+      <router-link to="/"><h2>GRAIN <span class="other-color">&</span> MORTAR</h2></router-link>
+      <div id ="menuToggle">
+        <input type ="checkbox"/>
+        <span id ="bullets">&#8226;&#8226;&#8226;</span>     
         
+        <!-- <span @click= "clickOpen">mobileNavOpen = {{mobileNavOpen}}</span> -->
+        <div id="subnav">
+          <span id ="crossmark">x</span>
+          <router-link to="/">Home</router-link>
+          <router-link to="/register">Register</router-link>
+          <router-link to="/login">Login</router-link>
+          <router-link to="/account">Account</router-link>
+          <router-link to="/board">Board</router-link>
+        </div>
       </div>
 
       
@@ -20,24 +23,28 @@
   
 </template>
 
- <script>
-import { scrollMixin } from '@/assets/scroll-mixin'
-export default {
-  name: "Navigation",
-  data() {
-     return { mobileNavOpen: false};
-   },
-   mixins: [ scrollMixin ],
-   methods: {
-    clickOpen: function(){
-       this.mobileNavOpen = true;
-     }
-   }
- };
+<script>
+  import { scrollMixin } from '@/assets/scroll-mixin'
+  export default {
+    name: "Navigation",
+    data() {
+        return { mobileNavOpen: false};
+    },
+    mixins: [ scrollMixin ],
+      methods: {
+        clickOpen: function(){
+          this.mobileNavOpen = true;
+        }
+      }
+    };
 </script>
 
 <style>
 
+body{
+  margin: 0;
+  padding: 0;
+}
 
 h2{
   margin-left: 1rem;
@@ -71,7 +78,7 @@ a{
   text-decoration: none;
 }
 .other-color{
-  color:white;
+  color: white;
 }
  input {
     display:none;
@@ -87,24 +94,25 @@ a{
 }
 @media only screen and (max-width: 740px) {
 
-  #show {
-    display: none;
+  #input {
+    opacity: 0;
   }
 
   #subnav {
+    margin-right: 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     background: white;
-    width: 40%;
+    width: 40vw;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    margin: 0;
-    position: absolute;
-    top: 0;
-    right: 0;
+    margin-top: -3.75rem;
+    right: 1rem;
     height: 100%;
     z-index: 2;
+    transform-origin: 0% 0%;
+    transform:translate(100%,0);
   }
   #subnav a{
     color: black;
@@ -133,6 +141,40 @@ a{
   font-size: 2rem;
   margin-right: 2rem;
 }
+#menuToggle
+{
+  display: block;
+  position: absolute;
+  top: 25px;
+  right: 0px;
+  
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle input
+{
+  display: block;
+  opacity: 0;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  right: 1.5rem;
+  
+  cursor: pointer;
+  z-index: 2; 
+  
+  -webkit-touch-callout: none;
+}
+#menuToggle input:checked~ #subnav
+{
+  transform: none;
+  opacity: 1;
+}
+
 }
 </style>
 
