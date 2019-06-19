@@ -1,15 +1,16 @@
 <template>
   <div id="nav">
-      <h2>GRAIN <span class="other-color">&</span> MORTAR</h2>
+      <router-link to="/"><h2>GRAIN <span class="other-color">&</span>MORTAR</h2></router-link>
       <span id ="bullets">&#8226;&#8226;&#8226;</span>
       <div id="subnav">        
         <span id ="crossmark">x</span>
+        <!-- <span @click= "clickOpen">mobileNavOpen = {{mobileNavOpen}}</span> -->
         <router-link to="/">Home</router-link>
         <router-link to="/register">Register</router-link>
         <router-link to="/login">Login</router-link>
         <router-link to="/account">Account</router-link>
         <router-link to="/board">Board</router-link>
-        <!-- <span @click= "clickOpen">mobileNavOpen = {{mobileNavOpen}}</span> -->
+        
       </div>
 
       
@@ -20,19 +21,19 @@
 </template>
 
  <script>
-// import { scrollMixin } from '@/assets/scroll-mixin'
-// export default {
-//   name: "Navigation",
-//   data() {
-//     return { mobileNavOpen: false};
-//   },
-//   mixins: [ scrollMixin ],
-//   methods: {
-//     clickOpen: function(){
-//       this.mobileNavOpen = true;
-//     }
-//   }
-// };
+import { scrollMixin } from '@/assets/scroll-mixin'
+export default {
+  name: "Navigation",
+  data() {
+     return { mobileNavOpen: false};
+   },
+   mixins: [ scrollMixin ],
+   methods: {
+    clickOpen: function(){
+       this.mobileNavOpen = true;
+     }
+   }
+ };
 </script>
 
 <style>
